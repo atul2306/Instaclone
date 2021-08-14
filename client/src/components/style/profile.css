@@ -1,0 +1,84 @@
+.P-start{
+    display: flex;
+    width: 100vw;
+    flex-direction: column;
+    height: 100vh;
+    background-color: rgb(255, 255, 255);
+}
+.P-star{
+    display: flex;
+    width: 75%;
+    height: 50%;
+    position: relative;
+    top: 2%;
+    left: 2%;
+   
+    background-color: rgb(255, 255, 255);
+}
+.P-sta{
+    display: flex;
+    width: 35%;
+    height: 80%;
+    justify-content: center;
+    align-items: center;
+}
+.P-sta img {
+    display: flex;
+    height: 70%;
+    width: 65%;
+    position: relative;
+    border-radius: 50%;
+    bottom: 4%;
+}
+.P-st{
+    display: flex;
+    width: 65%;
+    background-color: rgb(255, 255, 255);
+    flex-direction: column;
+}
+.P-st h3{
+    display: flex;
+    width: 30%;
+    font-size: xx-large;
+    font-family: serif;
+    position: relative;
+    left: 5%;
+    top: 3%;
+}
+.P-st button{
+    display: flex;
+    /* border: none; */
+    width: 15%;
+   
+ 
+    position: relative;
+    left: 38%;
+    bottom: 12.5%;
+    border-color: rgb(255, 255, 255);
+    border: groove;
+    background-color: white;
+
+}
+.P-st i.fa.fa-cog{
+   
+display: flex;
+width: 4%;
+position: relative;
+left: 54.6%;
+bottom: 19.7%;
+
+font-size: x-large;
+}
+
+.P-start .P-gallery{
+    display: flex;
+   flex-wrap: wrap;
+    justify-content: space-evenly;
+   
+}
+.P-gallery img{
+    display: flex;
+    width: 29%;
+    /* padding-bottom: 11%; */
+    padding-top: 1.5%;
+}

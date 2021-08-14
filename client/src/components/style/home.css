@@ -1,0 +1,18 @@
+.H-start{
+    display: flex;
+    width: 100vw;
+   flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(255, 255, 255);
+}
+.H-star{
+    display: flex;
+    width: 55%;
+    border: outset;
+    border-radius: 0.5rem;
+    border-color: #444;
+    flex-direction: column;
+    border-width: thin;
+    margin-top: 9%;
+}

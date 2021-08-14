@@ -1,0 +1,157 @@
+.S-start {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    flex-direction: column;
+    background-color: rgb(255, 255, 255);
+    align-items: center;
+    justify-content: center;
+}
+
+.S-star {
+    display: flex;
+    width: 28%;
+    height: 85%;
+  
+    position: relative;
+    bottom: 0%;
+    align-items: center;
+    justify-content: center;
+    border: outset;
+    border-radius: 0.7rem;
+    background-color: rgb(253, 253, 253);
+}
+
+.S-sta {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    justify-content: center;
+    background-color: rgb(255, 255, 255);
+    align-items: center;
+}
+
+.S-sta h2 {
+    font-family: 'Grand Hotel', cursive;
+    font-size: xxx-large;
+    font-weight: 500;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.S-sta h8 {
+    display: flex;
+    text-align: center;
+    width: 85%;
+    justify-content: center;
+    align-items: center;
+    font-size: inherit;
+    font-weight: lighter;
+    font-family: cursive;
+    margin-top: -2.5%;
+    filter: contrast(0.5);
+
+}
+
+.S-sta h7 {
+    display: flex;
+    font-size: larger;
+    font-weight: 600;
+    margin-left: 2.5%;
+    color: white;
+}
+
+.S-sta i.fa.fa-facebook-official {
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    width: 100%;
+    background-color: blue;
+    margin-top: 3%;
+    padding-top: 1.5%;
+    padding-bottom: 1.5%;
+    border-radius: 0.3rem;
+}
+
+.S-sta i {
+    color: white;
+    font-size: 0.95rem;
+}
+
+.S-sta p {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    border-bottom: 1px solid #000;
+    line-height: 0.2rem;
+    margin-top: 12%;
+    filter: opacity(0.5);
+}
+
+.S-sta span {
+    margin-top: 3.5%;
+    font-size: larger;
+    font-weight: 600;
+    position: relative;
+    top: -2.7rem; 
+    background-color: white;
+    padding-right: 4%;
+    padding-left: 4%;
+    filter: grayscale(0.5);
+}
+.S-sta button{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    margin-top: 4%;
+    background-color: #578ae5;
+    padding: 2.5%;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    border: none;
+}
+.S-st{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-top: -6%;
+}
+.S-st input{
+    display: flex;
+   
+    margin-bottom: 2% !important;
+    border-color: black !important;
+    border: groove !important;
+    box-sizing: border-box !important;
+    border-radius: 0.5rem !important;
+    color: rgb(0, 0, 0) !important;
+    font-weight: 500;
+}
+.S-sta h9{
+    display: flex;
+    width: 85%;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: xx-small;
+}
+.S-start h5{
+   
+    display: flex;
+    width: 28%;
+    padding-top: 5;
+    justify-content: center;
+    align-items: center;
+    border: outset;
+    position: relative;
+    font-size: small;
+    top: 0%;
+    left: 0%;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    border-radius: 0.5rem;
+ 
+}

@@ -1,0 +1,159 @@
+.L-start{
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgb(255, 255, 255);
+    align-items: center;
+   
+    justify-content: center;
+   
+   
+  
+}
+.L-star{
+    display: flex;
+    width: 28%;
+    height: 75%;
+    position: relative;
+    left: 50%;
+    bottom: 11.5%;
+    align-items: center;
+    justify-content: center;
+    border: outset;
+    border-radius: 0.7rem;
+    background-color: rgb(253, 253, 253);
+   
+}
+.L-sta{
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    justify-content: center;
+    background-color: rgb(255, 255, 255);
+    align-items: center;
+}
+.L-sta h2{
+    font-family: 'Grand Hotel', cursive;
+    font-size: xxx-large;
+    font-weight: 500;
+}
+.L-st{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+.L-st input{
+    display: flex;
+   
+    margin-bottom: 2% !important;
+    border-color: black !important;
+    border: groove !important;
+    box-sizing: border-box !important;
+    border-radius: 0.5rem !important;
+    color: rgb(0, 0, 0) !important;
+    font-weight: 500;
+}
+.L-sta button{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    margin-top: 4%;
+    background-color: #578ae5;
+    padding: 2.5%;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    border: none;
+}
+.L-sta p{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    border-bottom: 1px solid #000;
+    line-height: 0.2rem;
+    margin-top: 12%;
+}
+.L-sta span {
+   
+    margin-top: 3.5%;
+ 
+    font-size: larger;
+    font-weight: 600;
+    position: relative;
+    top: -2.7rem;
+    background-color: white;
+    padding-right: 4%;
+    padding-left: 4%;
+}
+h7{
+    
+    display: flex;
+    font-size: larger;
+    font-weight: 600;
+    margin-left: 2.5%;
+   
+}
+
+
+i.fa.fa-facebook-official{
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    width: 100%;
+    margin-top: -6%;
+}
+h9{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    
+    margin-top: 5%;
+}
+h5{
+    display: flex;
+    width: 28%;
+    padding-top: 5;
+    justify-content: center;
+    align-items: center;
+    border: outset;
+    font-size: small;
+    position: relative;
+    left: 22%;
+    top: 30%;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    border-radius: 0.5rem;
+}
+.L-start img{
+    display: flex;
+    width: 32%;
+   height: 70%;
+    position: relative;
+   border-radius: 5rem;
+    right: 55%;
+    bottom: 6%;
+}
+@media(max-width:780px){
+    .L-start{
+        flex-direction: column;
+    }
+    .L-star{
+        right: 5%;
+        width: 88%;
+        left: -2.5%;
+        top: 10%;
+        bottom: 0%;
+    }
+    h5{
+        right: 4%;
+        left: -2.5%;
+        top: 10%;
+        width: 87%;
+      padding-top: 2%;
+      padding-bottom: 2%;
+
+    }
+    .L-start img{
+        visibility: collapse;
+    }
+}
