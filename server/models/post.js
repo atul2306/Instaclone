@@ -8,12 +8,13 @@ const postSchema = new mongoose.Schema({
     },
     body: {
         type: String,
-        required: true
+        required:true
     },
     photo: {
         type: String,
-        default: "no photos"
+        required: true
     },
+    likes:[{type:ObjectId,ref:"USER"}],
     postedby:{
         // mtlb database me sirf id dikhega
       type:ObjectId,

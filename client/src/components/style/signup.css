@@ -155,3 +155,6 @@
     border-radius: 0.5rem;
  
 }
+.toast-container{
+    bottom: 54px !important;
+}

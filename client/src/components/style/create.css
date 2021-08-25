@@ -1,0 +1,36 @@
+.C-create{
+    display: flex;
+    align-items: center;
+    width: 100vw;
+    justify-content: center;
+    height: 100vh;
+    background-color: rgb(255, 255, 255);
+}
+.C-creat{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 80%;
+}
+.file-field{
+    display: flex;
+    width: 100%;
+}
+
+.C-creat button{
+    display: flex;
+   
+    justify-content: center;
+    align-items: center;
+    margin-top: 4%;
+    background-color: #578ae5;
+    padding: 2.5%;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    border: none;
+}
+.btn{
+    background-color: #578ae5;
+    border-radius: 1rem;
+}

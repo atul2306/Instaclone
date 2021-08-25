@@ -31,7 +31,7 @@ router.post("/signup", (req, res) => {
                     })
                     user.save()
                         .then(user => {
-                            return res.status(200).json({ message: "data saved" })
+                            return res.status(200).json({ message: "Registered Successfully" })
                         }).catch(err => {
                             console.log(err)
                         })
@@ -57,7 +57,8 @@ router.post("/signin", (req, res) => {
                         //return res.status(200).json({ message: "login suucess" })
                         // assigning token on the basis of _id
                         const token= jwt.sign({_id:check._id},JWT_SECRET)
-                        res.json({token})
+                        const {_id,name,email}= check
+                        res.json({token,user:{_id,name,email}})
 
                     }
                     else {
