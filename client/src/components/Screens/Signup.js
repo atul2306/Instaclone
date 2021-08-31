@@ -1,73 +1,77 @@
-import React, { useState } from "react"
+import React,{useContext} from "react"
 import { NavLink, useHistory } from "react-router-dom"
 import "../style/signup.css"
-import M from "materialize-css"
-
+import {toast} from "react-toastify"
+import {UserContext } from "../../reducer/UserContext"
+import { CircularProgress } from "@material-ui/core";
 const Signup = () => {
-    const history = useHistory()
-    const [data, setdata] = useState({
-        email: "", name: "", password: ""
-    })
-    const sigregister = (e) => {
-        const name1 = e.target.name
-        const value = e.target.value
-        setdata({ ...data, [name1]: value })
-    }
-
-    const postdata = () => {
-
-        const { name, email, password } = data
-        if (!/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(email)) {
-            M.toast({ html: "Invalid Email", classes: "#b71c1c red darken-4" })
-            return
-        }
-        fetch("/signup", {
-            method: "post",
+    const history =useHistory()
+    const {userDetails,setUserdetailsHandler}= useContext(UserContext)
+  
+    const submitSign=(e)=>{
+        e.preventDefault()
+        const formdata= new FormData(e.target)
+       // console.log(formdata.get("name"))
+        fetch("http://localhost:5000/signup",{
+            method:"POST",
             headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                name, email, password
-            })
-        }).then(res => res.json())
-            .then(data1 => {
-                
-                if (data1.error) {
-                    M.toast({ html: data.error, classes: "#b71c1c red darken-4" })
-                }
-                else {
-                    M.toast({ html: data1.message, classes: "#2e7d32 green darken-3" })
-                    history.push("/login")
-                }
+                'Content-Type': 'application/json',
+              },
 
-
-            }).catch(err=>{
-               console.log(err)
-            })
+           body:JSON.stringify(Object.fromEntries(formdata))
+         
+           
+        }).then((res)=>res.json())
+         .then((res)=> {
+             console.log(res)
+             if(res.ok){
+               
+              toast.success(res.message,{position:toast.POSITION.TOP_RIGHT})
+              setUserdetailsHandler(res)
+             history.push("/login")
+            } 
+            else{
+                toast.warn(res.message,{position:toast.POSITION.TOP_RIGHT})
+            }
+                                
+                               
+             
+             
+         })
+         .catch((err)=>{
+            console.log(err)
+            toast.error("Something went wrong, Please try again")
+         })
     }
-    return (
-        <>
-            <div className="S-start">
 
-                <div className="S-star">
-                    <div className="S-sta">
-                        <h2>Instagram</h2>
-                        <h8>Sign up to see photos and videos from your friends.</h8>
-                        <i className="fa fa-facebook-official" aria-hidden="true"><h7>  <NavLink style={{ color: "white" }} to="/"> Log in with Facebook</NavLink></h7></i>
-                        <p></p>
-                        <span>OR</span>
-                        <div className="S-st">
-                            <input type="text" placeholder="  Mobile Number or Email" name="email" value={data.email} onChange={sigregister} autocomplete="off" />
-                            <input type="text" placeholder="  Full Name" name="name" value={data.name} onChange={sigregister} autocomplete="off" />
-                            <input type="password" placeholder="  Password" name="password" value={data.password} onChange={sigregister} autocomplete="off" />
+    
+
+     
+        return (
+            <>
+                <div className="S-start">
+
+                    <div className="S-star">
+                        <div className="S-sta">
+                            <h2>Instagram</h2>
+                            <h8>Sign up to see photos and videos from your friends.</h8>
+                            <i className="fa fa-facebook-official" aria-hidden="true"><h7>  <NavLink style={{ color: "white" }} to="/"> Log in with Facebook</NavLink></h7></i>
+                            <p></p>
+                            <span>OR</span>
+                            <form onSubmit={submitSign} className="S-st">
+                                <input type="text" placeholder="Email or Password" name="email"  autocomplete="off" />
+                                <input type="text" placeholder="  Full Name" name="name" autocomplete="off" />
+                                <input type="password" placeholder="  Password" name="password" autocomplete="off" />
+                            
+                            <button type="submit">Sign up</button>
+                            </form>
+                            <h9>By signing up, you agree to our Terms , Data Policy and Cookies Policy .</h9>
                         </div>
-                        <button value="REGISTER" onClick={() => postdata()}>Sign up</button>
-                        <h9>By signing up, you agree to our Terms , Data Policy and Cookies Policy .</h9>
                     </div>
+                    <h5>Have an account?<NavLink to="/login">Login</NavLink></h5>
                 </div>
-                <h5>Have an account?<NavLink to="/login">Login</NavLink></h5>
-            </div>
-        </>
-    )
+            </>
+        )
+    
 }
 export default Signup

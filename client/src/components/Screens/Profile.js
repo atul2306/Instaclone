@@ -1,9 +1,11 @@
-import React from "react"
-
+import React,{useContext} from "react"
+import { UserContext } from "../../reducer/UserContext"
 import "../style/profile.css"
 
 
 const Profile=()=>{
+    const {userDetails}=useContext(UserContext)
+    console.log(userDetails)
     return (
         <>
         <div className="P-start">

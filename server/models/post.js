@@ -2,7 +2,7 @@ const mongoose = require("mongoose")
 // ye pichla mongoose ko connect krne ke lie hai
 const {ObjectId} =mongoose.Schema.Types
 const postSchema = new mongoose.Schema({
-    title: {
+    caption: {
         type: String,
         required: true
     },

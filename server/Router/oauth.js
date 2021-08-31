@@ -1,76 +1,76 @@
 const express = require("express")
 const router = express.Router()
-// now posting data in the main database
-const mongoose = require("mongoose")
-const User = mongoose.model("USER")
+const User = require("../models/user")
 const bcrypt = require("bcryptjs")
-const jwt= require("jsonwebtoken")
-const {JWT_SECRET}= require("../keys")
-const middleware= require("../middleware/middleware")
-
-router.get("/protected",middleware ,(req, res) => {
-    res.send("hello user")
-})
+const jwt = require("jsonwebtoken")
+const JWT_SECRET = process.env.SECRET_KEY
 router.post("/signup", (req, res) => {
-    //req ke body se sb frontent ka data aa jayega to hmko use destructure kr lete hai
-    const { name, email, password } = req.body
-    if (!name || !email || !password) {
-        return res.status(404).json({ error: "pls complete the details" })
-    }
+    const { email, name, password } = req.body
 
+    if (!email || !name || !password) {
+        return res.status(400).json({ message: "Incomplete details", ok: false })
+    }
+    // const userDetails={name,email} check krne ke lie
     User.findOne({ email: email })
-        .then((saveuser) => {
-            if (saveuser) {
-                return res.status(404).json({ error: "already exist email" })
+        .then((check) => {
+            if (check) {
+                return res.status(400).json({ message: "Email registered Already", ok: false })
             }
-            // else hmlg database me savkrnge
             bcrypt.hash(password, 12)
-                .then(hashedpassword => {
+                .then((hashed) => {
                     const user = new User({
-                        email, password: hashedpassword, name
+                        name, email, password: hashed
                     })
                     user.save()
-                        .then(user => {
-                            return res.status(200).json({ message: "Registered Successfully" })
-                        }).catch(err => {
-                            console.log(err)
-                        })
-                })
+                        .then(() => {
+                            return res.status(201).json({ message: "Registered Successfully", ok: true })
+                        }).catch((err) => console.log(err))
+                }).catch((err) => console.log(err))
 
-        }).catch(err => {
-            console.log(err)
+
         })
+
 })
+
+
+
+
+// route for signin
 router.post("/signin", (req, res) => {
-    const { email, password } = req.body;
+    const { email, password } = req.body
     if (!email || !password) {
-        return res.status(404).json({ error: "enter to login" })
+        return res.status(400).json({ message: "Incomplete Details", ok: false })
     }
     User.findOne({ email: email })
         .then((check) => {
+            // console.log(check)
             if (!check) {
-                return res.status(404).json({ error: "invalid credential" })
+                res.status(400).json({ message: "Invalid Credential" })
             }
             bcrypt.compare(password, check.password)
-                .then(match => {
-                    if (match) {
-                        //return res.status(200).json({ message: "login suucess" })
-                        // assigning token on the basis of _id
-                        const token= jwt.sign({_id:check._id},JWT_SECRET)
-                        const {_id,name,email}= check
-                        res.json({token,user:{_id,name,email}})
+                .then((checkedpass) => {
+                    // console.log(checkedpass)
+                    if (checkedpass) {
+                        const token = jwt.sign({ _id: check._id }, JWT_SECRET)
+                        // console.log(token)
+                        const userDetails = {
+                            id: check._id,
+                            email: check.email,
+                            name: check.name,
+                            password: check.password
+                           
+                           
 
+                        }
+                        res.status(201).json({ message: "Login Successful", userDetails: userDetails ,ok:true,token})
                     }
                     else {
-                        return res.status(404).json({ error: "invalid credential" })
+                        res.status(400).json({ message: "Invalid Credential",ok:false })
                     }
-                })
-                .catch(err => {
-                    console.log(err)
-                })
+                }) .catch((err)=>console.log(err))
 
-        }).catch(err => {
+        }).catch((err) => {
             console.log(err)
         })
 })
-module.exports = router 
+module.exports = router
