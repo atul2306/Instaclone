@@ -1,0 +1,46 @@
+.Forg-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+}
+.ForgotCss{
+    display: flex;
+    width: 50%;
+    height: 60%;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    border: outset;
+}
+.forforgot{
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+}
+
+.btn-grad {background-image: linear-gradient(to right, #AA076B 0%, #61045F  51%, #AA076B  100%)}
+.btn-grad {
+    margin: 10px;
+    padding: 13px 40px;
+    text-align: center;
+    display: flex;
+    align-items: 64%;
+    padding-left: 3%;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;
+   
+ 
+    box-shadow: 0 0 20px #eee;
+    border-radius: 10px;
+    display: block;
+ }
+
+ .btn-grad:hover {
+   background-position: right center; /* change the direction of the change here */
+   color: #fff;
+   text-decoration: none;
+ }

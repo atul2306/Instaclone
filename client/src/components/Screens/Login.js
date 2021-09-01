@@ -63,7 +63,7 @@ const Login = () => {
                         <p></p>
                         <span>OR</span>
                         <i style={{ color: "blue" }} className="fa fa-facebook-official" aria-hidden="true"><h7>  <NavLink to="/"> Log in with Facebook</NavLink></h7></i>
-                        <h9><NavLink to="/">Forgot password?</NavLink></h9>
+                        <h9><NavLink to="/forgot">Forgot password?</NavLink></h9>
                     </div>
                 </div>
                 <h5>Don't have an account?<NavLink to="/signup">Signup</NavLink></h5>

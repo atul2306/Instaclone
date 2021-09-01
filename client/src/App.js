@@ -7,6 +7,8 @@ import Profile from "./components/Screens/Profile"
 import Signup from "./components/Screens/Signup"
 //import Logout from "./components/Screens/Logout"
 import Createpost from "./components/Screens/Createpost"
+import ForgotPassword from "./components/Screens/ForgotPassword"
+import Updatepassword from "./components/Screens/Updatepassword"
 import { Route, Switch, useHistory } from "react-router-dom"
 import { UserContext } from "./reducer/UserContext"
 import { ToastContainer } from "react-toastify"
@@ -43,6 +45,8 @@ const App = () => {
           <Route exact path="/profile"><Profile /></Route>
           <Route exact path="/signup"><Signup /></Route>
           <Route exact path="/create"><Createpost /></Route>
+          <Route exact path="/forgot"><ForgotPassword /></Route>
+          <Route exact path="/reset/:token"><Updatepassword /></Route>
          
         </Switch>
       </UserContext.Provider>
