@@ -41,6 +41,7 @@ const App = () => {
 
         <Switch>
           <Route exact path="/"><Home /></Route>  // component equal to { } kr ke b kr skta
+         
           <Route exact path="/login"><Login /></Route>
           <Route exact path="/profile"><Profile /></Route>
           <Route exact path="/signup"><Signup /></Route>

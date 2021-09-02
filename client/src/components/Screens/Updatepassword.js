@@ -1,6 +1,7 @@
 import React from 'react'
 import "../style/forgotpass.css"
 import { useParams } from 'react-router-dom'
+import { toast } from 'react-toastify'
 const Updatepassword = () => {
    const {token}=useParams()
    console.log(token)
@@ -17,8 +18,15 @@ const Updatepassword = () => {
         }).then(res=>res.json())
         .then((res)=>{
             console.log(res)
+            if(res.ok){
+                toast.success(res.message,{position:toast.POSITION.TOP_RIGHT})
+            }
+            else{
+                toast.warn(res.message,{position:toast.POSITION.TOP_RIGHT})
+            }
         }).catch((err)=>{
             console.log(err)
+            toast.error("Something went wrong, Please try again",{position:toast.POSITION.TOP_RIGHT})
         })
     }
     

@@ -27,7 +27,6 @@ const Signup = () => {
              if(res.ok){
                
               toast.success(res.message,{position:toast.POSITION.TOP_RIGHT})
-              setUserdetailsHandler(res)
              history.push("/login")
             } 
             else{
@@ -40,7 +39,7 @@ const Signup = () => {
          })
          .catch((err)=>{
             console.log(err)
-            toast.error("Something went wrong, Please try again")
+            
          })
     }
 
